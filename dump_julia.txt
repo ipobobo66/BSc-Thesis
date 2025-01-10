@@ -1,0 +1,38 @@
+        degree_out = "$(prefix)\\$(prefix)_deg.txt"
+        community_out = "$(prefix)\\$(prefix)_comm.txt"
+        assignment_out = "$(prefix)\\$(prefix)_assign.txt"
+        hyperedge_out = "$(prefix)\\$(prefix)_he.txt"
+
+        joinpath("$(prefix)","$(prefix)_deg.txt")
+
+        
+        while true
+            dir_name = joinpath(@__DIR__, "$(prefix)")
+            if !ispath(dir_name)
+                mkpath(dir_name)
+                return dir_name
+            end
+        end
+
+        degree_out = joinpath("$(prefix)","$(prefix)_deg.txt")
+        community_out = joinpath("$(prefix)","$(prefix)_comm.txt")
+        assignment_out = joinpath("$(prefix)","$(prefix)_assign.txt")
+        hyperedge_out = joinpath("$(prefix)","$(prefix)_he.txt")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

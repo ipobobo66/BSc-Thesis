@@ -1,0 +1,1 @@
+julia --project abcdh.jl -n 1000 -d 2.5,3,30 -c 1.5,10,100 -x 0.175 -q q_uniform.txt -w :linear -s 4655 -o 1000_0.175_linear 

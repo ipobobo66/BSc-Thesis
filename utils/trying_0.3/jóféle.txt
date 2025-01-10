@@ -1,0 +1,98 @@
+def swissknife(N):
+    weighted_dict = {}
+    graphs = {}
+    communities = {}
+    community_sizes = {}
+    susceptibility = []
+    ABCD_groups = {}
+    clique_groups = {}
+    groups_k = {}
+    ngn_sg = {}
+    non_grouped_nodes_sg = {}
+    ngn = {}
+
+    weightlist = sorted(list(set(np.array(np.linspace(0, 2, 101)))))
+
+    for i in range(1, len(assign)+1):
+        ABCD_groups[i] = [int(assign[i-1])]
+
+    for l in range(0, len(weightlist)):
+        weighted_dict['weightup_%s' % weightlist[l]] = []
+        graphs['graph_%s' % l] =  nx.Graph() 
+        communities['c_%s' % l] = []
+        community_sizes['c_%s' % l] = []
+        ngn_sg['w_%s' % weightlist[l]] = nx.Graph()
+        non_grouped_nodes_sg['w_%s' % weightlist[l]] = []
+        ngn['w_%s' % weightlist[l]] = []
+        
+        weighted_dict['weightup_%s' % weightlist[l]] = [(u, v, d) for (u, v, d) in nxlistnew if d > weightlist[l]]
+        graphs['graph_%s' % l].add_weighted_edges_from(weighted_dict['weightup_%s' % weightlist[l]])
+
+        for i in range(0, len(list(k_clique_communities(graphs['graph_%s' % l], N, cliques=None)))):
+            communities['c_%s' % l].append(sorted(list(k_clique_communities(graphs['graph_%s' % l], N))[i]))
+            
+        for k in range(0, len(communities['c_%s' % l])):  
+            community_sizes['c_%s' % l].append(len(communities['c_%s' % l][k]))     
+        
+        with open(r'./comm_sizes/comms{0}_{1}_{2}.txt'.format(N, weightlist[l], K), 'w') as file:
+            for d in community_sizes['c_%s' % l]:
+                file.write(f"{d}\n")  
+            
+        if (sum(community_sizes['c_%s' % l][1:])) == 0.0:
+            susceptibility.append(0.0)
+        else:        
+            susceptibility.append((((sum(sorted(community_sizes['c_%s' % l],reverse=True)[1:]))**2)/(len(community_sizes['c_%s' % l])-1))/1000000)
+        #community_sizes['c_%s' % l] = (len(communities['c_%s' % l][i]) for i in range(0, len(communities['c_%s' % l])))
+
+        if len(communities['c_%s' % l]) == 0:
+            communities['c_%s' % l] = [[]]
+
+    #for i in range(0, len(weightlist)):
+        groups_k['w_%s' % weightlist[l]] = {}
+        #conn_comp['w_%s' % weightlist[l]] = {}
+        for j in range(1, len(list(k_clique_communities(graphs['graph_%s' % l], N, cliques=None))) + 1):
+            groups_k['w_%s' % weightlist[l]][j] = []
+            #conn_comp['w_%s' % weightlist[l]][j] = []
+            groups_k['w_%s' % weightlist[l]][j] = (sorted(list(k_clique_communities(graphs['graph_%s' % l], N))[j-1]))
+            #conn_comp['w_%s' % weightlist[l]][j] = len(sorted(list(k_clique_communities(graphs['graph_%s' % l], 2))[j-1]))
+        clique_groups['w_%s' % weightlist[l]] = {}
+        for k in groups_k['w_%s' % weightlist[l]]:
+            for v in groups_k['w_%s' % weightlist[l]][k]:
+                clique_groups['w_%s' % weightlist[l]].setdefault(v, []).append(k)
+        #middleman['w_%s' % weightlist[i]] = dict((v, [k]) for k in groups_k['w_%s' % weightlist[i]] for v in groups_k['w_%s' % weightlist[i]][k])
+        for j in [x for x in range(1,max(nodelist)+1) if x not in (list(dict((v, [k]) for k in groups_k['w_%s' % weightlist[l]] for v in groups_k['w_%s' % weightlist[l]][k]).keys()))]:
+            #clique_groups['w_%s' % weightlist[l]][j] = [j + len(groups_k['w_%s' % weightlist[l]])]
+            clique_groups['w_%s' % weightlist[l]][j] = [0]
+            
+        for key in clique_groups['w_%s' % weightlist[l]]:
+            if clique_groups['w_%s' % weightlist[l]][key] == [0]:
+                non_grouped_nodes_sg['w_%s' % weightlist[l]].append(key)
+                ngn['w_%s' % weightlist[l]] = (len(non_grouped_nodes_sg['w_%s' % weightlist[l]]))
+            ngn_sg['w_%s' % weightlist[l]] = G2.subgraph(non_grouped_nodes_sg['w_%s' % weightlist[l]])
+          
+    no_of_comms = []
+    comm_maxes = []
+
+    for l in range(0, len(weightlist)-1):   
+        no_of_comms.append(len(communities['c_%s' % l]))
+        comm_maxes.append((max(len(communities['c_%s' % l][i]) for i in range(0, len(communities['c_%s' % l]))))/1000)
+        
+    comm_maxes = comm_maxes + [0]
+    no_of_comms = no_of_comms + [0]  
+    
+    
+    clustering_ABCD = Clustering(ABCD_groups)
+
+    clustering_clique = {}
+
+    similarities = []
+
+    for i in range(1, len(clique_groups) + 1):
+        clustering_clique[i] = Clustering(clique_groups['w_%s' % weightlist[i-1]])
+        similarities.append( sim.element_sim(clustering_ABCD, clustering_clique[i], alpha = 0.9))
+        #print("Element-centric Similarity No.%s:" %i, sim.element_sim(clustering_ABCD, clustering_clique[i], alpha = 0.9) ) 
+        
+    return(weightlist, susceptibility, comm_maxes, similarities, community_sizes, ngn, ngn_sg)
+
+        
+    #------------------------------------------------------------------------

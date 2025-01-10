@@ -1,0 +1,103 @@
+
+@Article{hyperGeomBasics,
+  title = {Hyperbolic geometry of complex networks},
+  author = {Krioukov, Dmitri and Papadopoulos, Fragkiskos and Kitsak, Maksim and Vahdat, Amin and Bogu\~n\'a, Mari\'an},
+  journal = {Phys. Rev. E},
+  volume = {82},
+  issue = {3},
+  pages = {036106},
+  numpages = {18},
+  year = {2010},
+  month = {Sep},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevE.82.036106},
+  url = {https://link.aps.org/doi/10.1103/PhysRevE.82.036106}
+}
+
+@unpublished{Cannistraci_geom_congruency,
+author = {Muscoloni, Alessandro and Cannistraci, Carlo Vittorio},
+title = {Geometrical congruence and efficient greedy navigability of complex networks},
+note = "Preprint at arXiv:2005.13255 [cs.SI]",
+year = "2020" 
+}
+
+@misc{SBMcode,
+title = "For generating graphs with the stochastic block model, I used the {P}ython function `stochastic\_block\_model' available in the `{NetworkX}' package at \url{https://networkx.org/documentation/stable/reference/generated/networkx.generators.community.stochastic_block_model.html}."
+}
+
+@misc{two_col_draw_hnx,
+title = "For generating the two column graph representation, I used the {P}ython function `drawing.two_column' available in the `{HypernetX}' package at \url{https://pnnl.github.io/HyperNetX/build/_modules/drawing/two_column.html}."
+}
+
+@misc{networkx_weighted_g,
+title = "For generating the weighted simple graph representation, adding the weight levels ,and visualizing them, I have used the {P}ython package `{NetworkX}', with the implementation `weighted_graph' available at \url{https://networkx.org/documentation/stable/auto_examples/drawing/plot_weighted_graph.html}."
+}
+
+@misc{networkx_pack,
+title = "For generating the simple graph representation, adding the weight levels and visualizing them, I have used the {P}ython package `{NetworkX}', available at \url{https://networkx.org/documentation/stable/tutorial.html}."
+}
+
+
+@article{k-clicque-percolation,
+  title = {Clique Percolation in Random Networks},
+  author = {Der\'enyi, Imre and Palla, Gergely and Vicsek, Tam\'as},
+  journal = {Phys. Rev. Lett.},
+  volume = {94},
+  issue = {16},
+  pages = {160202},
+  numpages = {4},
+  year = {2005},
+  month = {Apr},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.94.160202},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.94.160202}
+}
+
+
+@article{ABCD-GEN,
+  title={Hypergraph Artificial Benchmark for Community Detection (h-ABCD)},
+  author={Bogumil Kami'nski and Paweł Prałat and Franccois Th'eberge},
+  journal={ArXiv},
+  year={2022},
+  volume={abs/2210.15009}
+}
+
+@misc{ABCD_gen_github,
+title = "For generating the hypergraphs, I have used a generator called the Hypergraph Artificial Benchmark for Community Detection, the source code of which can be found at \url{https://github.com/bkamins/ABCDHypergraphGenerator.jl}."
+}
+
+@misc{SimplicalComplexes_wiki,
+    author = "{Wikipedia contributors}",
+    title = "Simplicial complex --- {Wikipedia}{,} The Free Encyclopedia",
+    year = "2023",
+    howpublished = "\url{https://en.wikipedia.org/w/index.php?title=Simplicial_complex&oldid=1145732888}",
+    note = "[Online; accessed 4-May-2023]"
+}
+
+@misc{ Simplexes_wiki,
+    author = "{Wikipedia contributors}",
+    title = "Simplex --- {Wikipedia}{,} The Free Encyclopedia",
+    year = "2023",
+    howpublished = "\url{https://en.wikipedia.org/w/index.php?title=Simplex&oldid=1148166123}",
+    note = "[Online; accessed 4-May-2023]"
+}
+
+@misc{SimplicalComplexes_introduction,
+title = "A well written and comprehensive report can be read about simplicial complexes at \url{https://www.math.uci.edu/~mathcircle/materials/MCsimplex.pdf}."
+}
+
+  @misc{ ComplexNetworks_wiki,
+    author = "{Wikipedia contributors}",
+    title = "Hypergraph --- {Wikipedia}{,} The Free Encyclopedia",
+    year = "2023",
+    howpublished = "\url{https://en.wikipedia.org/w/index.php?title=Hypergraph&oldid=1145086303}",
+    note = "[Online; accessed 8-May-2023]"
+  }
+
+  @misc{Hypergraphs_wiki,
+    author = "{Wikipedia contributors}",
+    title = "Hypergraph --- {Wikipedia}{,} The Free Encyclopedia",
+    year = "2023",
+    howpublished = "\url{https://en.wikipedia.org/w/index.php?title=Hypergraph&oldid=1145086303}",
+    note = "[Online; accessed 8-May-2023]"
+  }

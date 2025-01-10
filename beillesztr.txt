@@ -1,0 +1,40 @@
+--Rendparaméter:
+The order parameter \textis{S} is given by the relative size of the largest component, or in our case, the largest community, $\textit{S} = \frac{s_1}{N}$, where $s_1$ is the size of the community at hand and N is the size of the network. \textis{S} can range from 0 in the disordedred phase to 1 in the complete phase (when the network is fully connected so in one word, complete). When the order parameter is non-zero we call it the "ordered" phase.
+
+--Szuszceptibilitás:
+As the system is getting close to the transition point, with the removal of edges labeled 'weak' regarding their weight and making the system break up into more isolated and smaller clusters, the system itself can show extreme large senitivity with respect to outside perturbations that drive the system towards the other phase. The removal of just one link can induce the total {\color{green}breakup} of the giant component and turn our network into {\color{green}disjunkt} components. The quantity to measure the sensitivity of the system is called susceptibility and is denoted by $\chi$. For macroscopic (or infinitely large) systems $\chi$ is divergent at the transition point.
+it can be calculated as follows:
+----------centerezd, meg equation
+\chi = \sum_{s \neq s_{max}} frac{s^2}{N_s}
+
+Where s is the relative size of each community and {N_s} is the number of all communities within the graph. One important thing to note, is the fact that the largest community should be left out of the formula for $\chi$. If it would be included in the formula, we would get extremely large $\chi$ values everywhere in the phase, because of this large community. But we want a peak in $\chi$ at the transition point. 
+
+
+
+--Phase-transition:
+Phase transitions have several universal features. When we study the so-called inverse percolation-transition within our model, where in the initial phase the network contains a giant component, but with a well defined removal of our nodes (weight thresholds), it is goping to be complete split up and destroyed. This way the system is pushed towards the other phase of being split into isolated small components instead of a giant component. During the transition between the two phases we can check the change in certain measure to show, how this transition affects the network as a whole.
+
+
+
+
+--Nature cikk:
+The recommendation was, to use the weight threshold level at which the peak susceptibility is measured, so at the turning point of the phase shift. At this point, as the phase-shift have been initiated by the change in weight thresholds, and edges considered as weak have been dropped from the network, the minimum weight seems perfect for community detection and evaluation. Although this theory has not been proved within the original paper, my calculations show, that for different networks generated and different $k$ values, at the point of peak susceptibility, the element-centric similarity scores have a peak as well, making the community detection gain the best result at that point.
+
+
+
+
+
+{\color{blue}
+
+Nature cikkben ajánlás volt: Ha adott k-val keresünk csoportokat és nem tudjuk, hol legyen a csportkeresést segítő élsúlyküszöb, akkor tegyük oda a küszöböt, ahol a klikk-perkolációs fázisátalakulást látjuk. Ez azonban (megfelelő hálógeneráló modell és hasonlósági mérőszám hiányában) nem volt tesztelve, hogy a fázisátalakulásnál tényleg a lehető legjobban sikerül-e detektálni betáplált (planted) community-ket.
+
+Majd kijelenteni, hogy ez a fejezet a klikk-perkolációs fázisátalakulást vizsgálja h-ABCD hálók súlyozott vetülete (ami már nem hipergráf, hanem sima háló) esetén, és célja bemutatni a fázisátalakulás jelenlétét ebben a modellben, valamint igazolni, hogy a régi cikkben adott élsúlyküszöb választási tipp valóban hasznos, hiszen tényleg a fázisátalakuláshoz tartozó élsúlyküszöbnél mérjük a nagy hasonlóságot a betáplált és a talált csoportok között.
+}
+
+
+
+
+
+
+
+
